@@ -1,0 +1,79 @@
+.home-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+.header{
+    background-image: url("../wallpaper.jpg");
+    flex-basis: 80%;
+    background-size:cover;
+    display: flex;
+    justify-content: flex-end;
+  
+   
+}
+.header>div{
+    display: flex;
+    gap:10px;
+    height: 20px;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.header>div>span{
+    font-family: 'Mate SC', serif;
+    font-weight: bold;
+   
+}
+.header>div>i{
+    
+    margin-top: 2px;
+   
+}
+
+.content{
+    background: rgb(19, 84, 102);
+    flex-basis: 20%;
+    display: flex;
+    gap:70px;
+    
+   
+}
+.logo{
+    flex-basis: 10%;
+    margin-left: 20px;;
+}
+.logo-img{
+    width:150px;
+}
+
+.menu{
+   display: flex;
+   align-items: center;
+   gap:40px;
+   margin-bottom: 10px;;
+    
+}
+
+@media only screen and (max-width: 490px) {
+    .header{
+        flex-basis:10%;
+        background: rgb(19, 84, 102);
+    }
+   .content{
+       flex-direction: column;
+       gap:0px;
+       flex-basis: 90%;
+   }
+   .logo{
+       display: flex;
+       margin-left: 0px;
+       justify-content: center;
+   }
+   .menu{
+       justify-content: center;
+   }
+   
+}
+

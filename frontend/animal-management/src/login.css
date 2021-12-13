@@ -1,0 +1,36 @@
+.login-container
+{
+    height:100vh;
+    background-image: url('./wallpaper1.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.connection-form
+{
+    background: rgba(19, 84, 102,0.5);  
+    padding:10px;  
+    
+}
+.form-group
+{
+     display: flex;
+     flex-direction: column;
+     color:white;
+     font-family: 'Mate SC', serif;
+}
+button,input{
+    font-family: 'Mate SC', serif;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
+button{
+    background-color: white;
+    font-weight: bold;
+    border: none;
+}
+

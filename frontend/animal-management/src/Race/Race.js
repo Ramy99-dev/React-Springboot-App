@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import './race.css';
 const Race = () => {
     let navigate = useNavigate();
 
@@ -24,10 +24,11 @@ const Race = () => {
 
 
     return (
-        <div>
+        <div className="race-container">
+        <div class="data-table">
            {isAdmin &&  <Link to="/add-race"><button className="btn btn-warning">Add Breed</button></Link>}
             {(race.length > 0) ?
-                <table className="table table-striped">
+                <table className="fl-table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -48,7 +49,7 @@ const Race = () => {
                                     e.preventDefault();
                                     axios.delete(`http://localhost:8082/animal-management/api/race/${r.id}`)
                                         .then((result) => {
-
+                                            console.log(result)
                                             let raceCopy = [...race];
                                             raceCopy.splice(index, 1)
                                             setRace(raceCopy)
@@ -67,6 +68,7 @@ const Race = () => {
                 </table> : <div class="alert alert-warning" role="alert">
                    No Data Found
                 </div>}
+                </div>
 
 
 

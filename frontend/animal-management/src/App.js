@@ -33,6 +33,8 @@ axios.interceptors.response.use((response)=>{
   let token = localStorage.getItem("token");
   if(token)
   {
+    (response.data=='' &&(response.data = {}))
+    console.log(response)
     console.log(token)
     response.data.user = jwt_decode(token+"");
   }

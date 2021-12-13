@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link ,useNavigate  } from "react-router-dom";
+import './animal.css';
 const Animal = () => {
     let navigate = useNavigate();
     const [animals, setAnimals] = useState([]);
@@ -33,10 +34,11 @@ const Animal = () => {
 
 
     return (
-        <div>
+        <div className="animal-container">
+        <div class="data-table">
            {isAdmin &&   <Link to="/add-animal"><button className="btn btn-warning">Add Animal</button></Link>}
             {isLoaded == true ?
-                <table className="table table-striped">
+                <table className="fl-table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -80,6 +82,7 @@ const Animal = () => {
           </div>}
 
 
+        </div>
         </div>
     );
 }

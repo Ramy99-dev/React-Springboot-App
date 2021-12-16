@@ -8,7 +8,10 @@ const Animal = () => {
     const [animals, setAnimals] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     let [isAdmin , setIsAdmin] = useState(false)
+
+    
     useEffect(() => {
+
         axios.get("http://localhost:8082/animal-management/api/animal")
             .then((result) => {
                 setAnimals(result.data);

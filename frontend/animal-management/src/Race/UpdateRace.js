@@ -20,8 +20,8 @@ const UpdateRaceForm = () => {
 
     return (
 
-        <div className="container">
-            <form>
+        <div className="race-form-container">
+            <form className="race-form">
                 <div className="form-group">
                     <label>ID</label>
                     <input value={race?.id} disabled type="text" className="form-control" placeholder="Enter email" />
@@ -42,6 +42,7 @@ const UpdateRaceForm = () => {
                     }} className="form-control" rows="3"></textarea>
                 </div>
 
+                <div className="button">
 
                 <button type="submit" onClick={(e) => {
                     e.preventDefault();
@@ -63,7 +64,8 @@ const UpdateRaceForm = () => {
                             console.log(err)
                         })
 
-                }} className="btn btn-primary">Submit</button>
+                }} className="btn btn-primary">Update</button>
+                </div>
             </form>
         </div>
     );

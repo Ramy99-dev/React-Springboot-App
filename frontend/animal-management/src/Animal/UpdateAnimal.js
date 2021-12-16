@@ -31,10 +31,10 @@ const UpdateAnimalForm = () => {
 
     
     return (
-        <div>
+              <div className="animal-form-container">
            
           {(animal && race?.length>0) && <div className="container">
-            <form>
+            <form className="animal-form">
             <div className="form-group">
                     <label >ID</label>
                     <input disabled value={animal?.id} onChange={(e)=>{
@@ -85,6 +85,7 @@ const UpdateAnimalForm = () => {
                     })}
                 </select>
                 </div>
+                <div className="button">
 
                 <button type="submit" onClick={(e)=>{
                     e.preventDefault();
@@ -105,7 +106,8 @@ const UpdateAnimalForm = () => {
                        console.log(err)
                    })
                    
-                }} className="btn btn-primary">Submit</button>
+                }} className="btn btn-primary">Update</button>
+                </div>
             </form>
           </div>    }
            

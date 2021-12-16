@@ -11,7 +11,6 @@ const Home = () => {
         console.log(token)
         if(token !=null)
         {
-            console.log("test")
            setUser(jwt_decode(token+"").sub);
         }
         else{

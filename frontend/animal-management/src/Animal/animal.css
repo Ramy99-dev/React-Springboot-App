@@ -2,8 +2,11 @@
     height: 100vh;
     background-image: url("../wallpaper1.jpg");
     background-size: cover;
+    display:flex;
+    flex-direction: column;
 }
 .data-table {
+    flex-basis: 95%;
     height: 100%;
     overflow-y: auto;
     margin: 0px 70px 70px;
@@ -117,16 +120,15 @@
     }
 }
 
-.add-container {
+.animal-form-container {
     display: flex;
     height: 100vh;
-    background-image: url("../wallpaper1.jpg");
-    background-size: cover;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-.login-form {
+.animal-form {
     background: rgba(19, 84, 102, 0.5);
     padding: 10px;
     display: flex;

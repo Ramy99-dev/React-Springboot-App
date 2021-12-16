@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link ,useNavigate  } from "react-router-dom";
+import TopNav from "../TopNav";
 import './animal.css';
 const Animal = () => {
     let navigate = useNavigate();
@@ -34,7 +35,9 @@ const Animal = () => {
 
 
     return (
+       
         <div className="animal-container">
+        <TopNav/>
         <div class="data-table">
            {isAdmin &&   <Link to="/add-animal"><button className="btn btn-warning">Add Animal</button></Link>}
             {isLoaded == true ?

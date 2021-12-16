@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import TopNav from "../TopNav";
 const AnimalForm = () => {
     const navigate = useNavigate();
     const [race, setRace] = useState([]);
@@ -25,10 +26,12 @@ const AnimalForm = () => {
         console.log(race.length);
     }, [race])
     return (
-        <div>
+        <div className="animal-container">
+               <TopNav/>
             {isLoaded == true ?
-                <div className="add-container">
-                    <form className="login-form">
+                <div className="animal-form-container">
+                 
+                    <form className="animal-form">
                         <div className="form-group">
                             <label >Animal Name</label>
                             <input onChange={(e) => {

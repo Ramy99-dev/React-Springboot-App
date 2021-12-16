@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router";
+import TopNav from "../TopNav";
 const RaceForm = () => {
 
     const navigate = useNavigate();
@@ -7,9 +8,10 @@ const RaceForm = () => {
 
 
     return (
-
-        <div className="container">
-            <form>
+       <div className="race-container">
+           <TopNav/>
+        <div className="race-form-container">
+            <form className="race-form">
                 <div className="form-group">
                     <label >Animal Breed</label>
                     <input onChange={(e) => {
@@ -24,6 +26,7 @@ const RaceForm = () => {
                     }} className="form-control"  rows="3"></textarea>
                 </div>
                
+                <div className="button">
 
                 <button type="submit" onClick={(e) => {
                     e.preventDefault();
@@ -44,8 +47,10 @@ const RaceForm = () => {
                         })
 
                 }} className="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
+       </div>
     );
 }
 

@@ -2,5 +2,21 @@
     height:100vh;
     background-image: url('../wallpaper_night.jpg');
     background-size: cover;
+    display:flex;
+    flex-direction: column;
 
+}
+.race-form-container {
+    flex-basis:95%;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.race-form {
+    background: rgba(19, 84, 102, 0.5);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }

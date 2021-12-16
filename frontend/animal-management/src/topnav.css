@@ -1,0 +1,10 @@
+.top-nav{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 5%;
+}
+.top-nav-items{
+    display:flex;
+    flex-direction: row;
+}

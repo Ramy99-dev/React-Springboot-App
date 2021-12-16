@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import TopNav from "../TopNav";
 import './race.css';
 const Race = () => {
     let navigate = useNavigate();
@@ -25,6 +26,7 @@ const Race = () => {
 
     return (
         <div className="race-container">
+            <TopNav/>
         <div class="data-table">
            {isAdmin &&  <Link to="/add-race"><button className="btn btn-warning">Add Breed</button></Link>}
             {(race.length > 0) ?

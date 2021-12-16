@@ -1,63 +1,60 @@
-.animal-container{
-    height:100vh;
-    background-image: url('../wallpaper1.jpg');
+.animal-container {
+    height: 100vh;
+    background-image: url("../wallpaper1.jpg");
     background-size: cover;
-
 }
-.data-table{
-   height :100%;
-   overflow-y: auto ;
-   margin: 0px 70px 70px;
-   box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+.data-table {
+    height: 100%;
+    overflow-y: auto;
+    margin: 0px 70px 70px;
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 }
 
 .fl-table {
-   opacity: 0.8;
-   border-radius: 5px;
-   font-size: 12px;
-   font-weight: normal;
-   border: none;
-   border-collapse: collapse;
-   width: 100%;
-   max-width: 100%;
-   white-space: nowrap;
-   background-color: white;
-   color:black;
-   
+    opacity: 0.8;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    color: black;
 }
 
-.fl-table td, .fl-table th {
-   text-align: center;
-   padding: 8px;
+.fl-table td,
+.fl-table th {
+    text-align: center;
+    padding: 8px;
 }
 
 .fl-table td {
-   border-right: 1px solid #f8f8f8;
-   font-size: 12px;
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
 }
 
 .fl-table thead th {
-   color: #ffffff;
-   background: black;
+    color: #ffffff;
+    background: black;
 }
 
-
 .fl-table thead th:nth-child(odd) {
-   color: black;
-   background: white;
+    color: black;
+    background: white;
 }
 
 .fl-table tr:nth-child(even) {
-   background: #F8F8F8;
+    background: #f8f8f8;
 }
-
 
 @media (max-width: 767px) {
     .fl-table {
         display: block;
         width: 100%;
     }
-    .table-wrapper:before{
+    .table-wrapper:before {
         content: "Scroll horizontally >";
         display: block;
         text-align: right;
@@ -65,10 +62,12 @@
         color: white;
         padding: 0 0 10px;
     }
-    .fl-table thead, .fl-table tbody, .fl-table thead th {
+    .fl-table thead,
+    .fl-table tbody,
+    .fl-table thead th {
         display: block;
     }
-    .fl-table thead th:last-child{
+    .fl-table thead th:last-child {
         border-bottom: none;
     }
     .fl-table thead {
@@ -79,11 +78,10 @@
         position: relative;
         overflow-x: auto;
         overflow-y: scroll;
-    
-        
     }
-    .fl-table td, .fl-table th {
-        padding: 20px .625em .625em .625em;
+    .fl-table td,
+    .fl-table th {
+        padding: 20px 0.625em 0.625em 0.625em;
         height: 60px;
         vertical-align: middle;
         box-sizing: border-box;
@@ -107,14 +105,30 @@
         background: transparent;
     }
     .fl-table tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
+        background: #f8f8f8;
+        border-right: 1px solid #e6e4e4;
     }
     .fl-table tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
+        border-right: 1px solid #e6e4e4;
     }
     .fl-table tbody td {
         display: block;
         text-align: center;
     }
+}
+
+.add-container {
+    display: flex;
+    height: 100vh;
+    background-image: url("../wallpaper1.jpg");
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    background: rgba(19, 84, 102, 0.5);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useLocation , useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import TopNav from "../TopNav";
 const UpdateRaceForm = () => {
 
     const location = useLocation();
@@ -20,7 +21,10 @@ const UpdateRaceForm = () => {
 
     return (
 
-        <div className="race-form-container">
+        <div className="race-container">
+              <TopNav/>
+              <div className="race-form-container">
+
             <form className="race-form">
                 <div className="form-group">
                     <label>ID</label>
@@ -67,6 +71,7 @@ const UpdateRaceForm = () => {
                 }} className="btn btn-primary">Update</button>
                 </div>
             </form>
+              </div>
         </div>
     );
 }

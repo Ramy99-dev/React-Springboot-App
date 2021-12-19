@@ -8,7 +8,8 @@ const Animal = () => {
     const [animals, setAnimals] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     let [isAdmin , setIsAdmin] = useState(false)
-
+    let searchOption = 'animal';
+    let inputsearch ='';
     
     useEffect(() => {
 
@@ -42,6 +43,41 @@ const Animal = () => {
         <div className="animal-container">
         <TopNav/>
         <div class="data-table">
+            <input type="text" placeholder="Search ... " onChange ={(e)=>{
+                 if(e.target.value =="")
+                 {
+                     axios.get(`http://localhost:8082/animal-management/api/animal`)
+                     .then((result)=>setAnimals(result.data))
+                     .catch((err)=>console.log(err))
+                 }
+                   inputsearch = e.target.value;
+
+            }}/>
+                <select className="search-options" onChange={(e)=>{
+                     
+                      searchOption = e.target.value;
+                      
+                }}>
+                    <option value="animal">By Animal Name</option>
+                    <option value="breed">By Breed Name</option>
+                </select><button onClick={()=>{
+                    console.log(inputsearch)
+                    console.log(searchOption)
+
+                    if(searchOption == "breed")
+                    {
+                       
+                        axios.get(`http://localhost:8082/animal-management/api/animal/findByRace/${inputsearch}`)
+                        .then((result)=>setAnimals(result.data))
+                        .catch((err)=>console.log(err))
+                    }
+                    else
+                    {
+                        axios.get(`http://localhost:8082/animal-management/api/animal/findByName/${inputsearch}`)
+                        .then((result)=>setAnimals(result.data))
+                        .catch((err)=>console.log(err))
+                    }
+                }}>Search</button><br/>
            {isAdmin &&   <Link to="/add-animal"><button className="btn btn-warning">Add Animal</button></Link>}
             {isLoaded == true ?
                 <table className="fl-table">

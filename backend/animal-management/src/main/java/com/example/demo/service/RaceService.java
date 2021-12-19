@@ -15,6 +15,7 @@ public interface RaceService {
 	void deleteRaceById(Long id);
 	Race getRace(Long id);
 	List<Race> getAllRace();
+	List<Race> getRaceByName(String name);
 	/*List<Race> findByNameRace(String nom);
 	List<Race> findByNameRaceContains(String nom);
 	List<Race> findByNameAge (String nom, Long age);

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entities.Animal;
 import com.example.demo.entities.Race;
 import com.example.demo.service.RaceService;
 
@@ -49,6 +50,13 @@ public class RaceRestController {
 	{
 	  raceService.deleteRaceById(id);
 	}
+	
+	@RequestMapping(value="/findByName/{name}", method = RequestMethod.GET)
+	public List<Race> getByNameContains(@PathVariable("name") String race)
+	{ 
+		return raceService.getRaceByName(race);
+	}
+	
 	
 	
 

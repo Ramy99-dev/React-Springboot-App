@@ -23,12 +23,12 @@ public interface AnimalRepo extends JpaRepository<Animal, Long>{
 	List<Animal> findByAnimalNameAndAge (@Param("nom") String nom,@Param("age") Long age);
 	
 	
-	@Query("select a from Animal a where a.race = ?1")
-	List<Animal> findByRace (Race race);
+	List<Animal> findByRaceRaceName (String race);
 	
 	List<Animal> findByRaceId(Long id);
 	
 	List<Animal> findByOrderByNameAsc();
+	
 	
 	
 	@Query("select a from Animal a order by a.age ASC, a.age DESC")

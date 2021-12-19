@@ -16,7 +16,7 @@ public interface AnimalService {
 	List<Animal> findByNameAnimal(String nom);
 	List<Animal> findByNameAnimalContains(String nom);
 	List<Animal> findByNameAge (String nom, Long age);
-	List<Animal> findByRace (Race race);
+	List<Animal> findByRace (String race);
 	List<Animal> findByRaceId(Long id);
 	List<Animal> findByOrderByNomAnimalAsc();
 	List<Animal> trierAnimalNomsAge();

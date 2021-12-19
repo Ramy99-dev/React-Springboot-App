@@ -8,7 +8,7 @@ const Race = () => {
 
     const [race, setRace] = useState([]);
     let [isAdmin , setIsAdmin] = useState(false)
-
+    let inputsearch ="";
 
     useEffect(() => {
         axios.get("http://localhost:8082/animal-management/api/race")
@@ -28,6 +28,20 @@ const Race = () => {
         <div className="race-container">
             <TopNav/>
         <div class="data-table">
+           <input type="text" onChange={(e)=>{
+                    if(e.target.value =="")
+                    {
+                        axios.get(`http://localhost:8082/animal-management/api/race`)
+                        .then((result)=>setRace(result.data))
+                        .catch((err)=>console.log(err))
+                    }
+                    inputsearch = e.target.value;
+           }}  placeholder="Search ..."/><button onClick={()=>{
+               
+            axios.get(`http://localhost:8082/animal-management/api/race/findByName/${inputsearch}`)
+            .then((result)=>setRace(result.data))
+            .catch((err)=>console.log(err))
+           }}>Search</button>
            {isAdmin &&  <Link to="/add-race"><button className="btn btn-warning">Add Breed</button></Link>}
             {(race.length > 0) ?
                 <table className="fl-table">

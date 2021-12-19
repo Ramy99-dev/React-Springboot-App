@@ -49,9 +49,20 @@ public class AnimalRestController {
 	  animalService.deleteAnimalById(id);
 	}
 	
-	@RequestMapping(value="/animalrace/{idRace}",method = RequestMethod.GET)
-	public List<Animal> getAnimalByCatId(@PathVariable("idRace") Long idRace) {
-	   return animalService.findByRaceId(idRace);
+	
+	
+	@RequestMapping(value="/findByRace/{r}", method = RequestMethod.GET)
+	public List<Animal> getByRace(@PathVariable("r") String r)
+	{ 
+		return animalService.findByRace(r);
 	}
+	
+	
+	@RequestMapping(value="/findByName/{name}", method = RequestMethod.GET)
+	public List<Animal> getByNameContains(@PathVariable("name") String animal)
+	{ 
+		return animalService.findByNameAnimalContains(animal);
+	}
+	
 
 }

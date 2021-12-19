@@ -63,8 +63,8 @@ public class AnimalServiceImpl implements AnimalService  {
 	}
 
 	@Override
-	public List<Animal> findByRace(Race race) {
-		return animalRepo.findByRace(race);
+	public List<Animal> findByRace(String race) {
+		return animalRepo.findByRaceRaceName(race);
 	}
 
 	@Override

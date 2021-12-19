@@ -45,4 +45,9 @@ public class RaceServiceImpl implements RaceService {
 		return raceRepo.findAll();
 	}
 
+	@Override
+	public List<Race> getRaceByName(String name) {
+		return raceRepo.findByRaceNameContains(name);
+	}
+
 }

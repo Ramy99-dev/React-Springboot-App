@@ -8,14 +8,17 @@ const Animal = () => {
     const [animals, setAnimals] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     let [isAdmin , setIsAdmin] = useState(false)
+    let [inputsearch , setInputSearch] = useState('')
     let searchOption = 'animal';
-    let inputsearch ='';
-    
+    let initialData=[];
     useEffect(() => {
 
         axios.get("http://localhost:8082/animal-management/api/animal")
             .then((result) => {
                 setAnimals(result.data);
+                initialData = result.data;
+                console.log('INITIAL')
+                console.log(initialData)
                 console.log(result.data.user.roles.includes('ADMIN'))
                 if(result.data.user.roles.includes('ADMIN'))
                 {
@@ -36,21 +39,26 @@ const Animal = () => {
         console.log(animals.length);
     }, [animals])
 
+    
+
 
 
     return (
        
         <div className="animal-container">
         <TopNav/>
+        
+      
         <div class="data-table">
+
             <input type="text" placeholder="Search ... " onChange ={(e)=>{
                  if(e.target.value =="")
                  {
                      axios.get(`http://localhost:8082/animal-management/api/animal`)
                      .then((result)=>setAnimals(result.data))
-                     .catch((err)=>console.log(err))
+                     .catch((err)=>setAnimals(initialData))
                  }
-                   inputsearch = e.target.value;
+                   setInputSearch(e.target.value);
 
             }}/>
                 <select className="search-options" onChange={(e)=>{
@@ -63,22 +71,26 @@ const Animal = () => {
                 </select><button onClick={()=>{
                     console.log(inputsearch)
                     console.log(searchOption)
-
+                   if(inputsearch !='')
+                   {
                     if(searchOption == "breed")
                     {
-                       
+                   
                         axios.get(`http://localhost:8082/animal-management/api/animal/findByRace/${inputsearch}`)
-                        .then((result)=>setAnimals(result.data))
-                        .catch((err)=>console.log(err))
+                        .then((result)=>{console.log(result.status)
+                            setAnimals(result.data)})
+                        .catch((err)=>setAnimals(initialData))
                     }
                     else
                     {
                         axios.get(`http://localhost:8082/animal-management/api/animal/findByName/${inputsearch}`)
                         .then((result)=>setAnimals(result.data))
-                        .catch((err)=>console.log(err))
+                        .catch((err)=>setAnimals(initialData))
                     }
+                   }
+                    
                 }}>Search</button><br/>
-           {isAdmin &&   <Link to="/add-animal"><button className="btn btn-warning">Add Animal</button></Link>}
+           {isAdmin &&   <div><Link to="/add-animal"><button className="btn btn-warning">Add Animal</button></Link></div>}
             {isLoaded == true ?
                 <table className="fl-table">
                     <thead>
@@ -92,7 +104,7 @@ const Animal = () => {
                         </tr>
                     </thead>
                     <tbody>
-                      {animals.map((animal,index)=>{
+                      {animals.length>0 ?animals.map((animal,index)=>{
                           console.log()
                        return  <tr key={animal.id}>
                                   <th scope="row">{animal.id}</th>
@@ -114,7 +126,7 @@ const Animal = () => {
                                    navigate('/update-animal',{state:{'animal':animal}})
                                 }}>Update</button></td>}
                                </tr>
-                     })}
+                     }): <p>No Data found</p>}
                         
                     </tbody>
                 </table>

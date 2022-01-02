@@ -41,7 +41,7 @@ const Race = () => {
             axios.get(`http://localhost:8082/animal-management/api/race/findByName/${inputsearch}`)
             .then((result)=>setRace(result.data))
             .catch((err)=>console.log(err))
-           }}>Search</button>
+           }}>Search</button><br />
            {isAdmin &&  <Link to="/add-race"><button className="btn btn-warning">Add Breed</button></Link>}
             {(race.length > 0) ?
                 <table className="fl-table">
